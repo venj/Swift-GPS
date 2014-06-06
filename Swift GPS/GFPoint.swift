@@ -30,10 +30,7 @@ class GFPoint: NSObject, MKAnnotation {
             self.init()
         }
         else {
-            let latString = comps[0] as String
-            //let lat = latString.doubleValue
-            self.init()
+            self.init(x:Double(comps[0]), y:Double(comps[1]))
         }
     }
-    
 }
