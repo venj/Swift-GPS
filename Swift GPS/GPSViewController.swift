@@ -150,8 +150,11 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
     }
     
     @IBAction func newFile(sender: AnyObject!) {
-        let alert = UIAlertView(title:NSLocalizedString("File name", comment: "File name"),
-            message:NSLocalizedString("Please specify a filename for data file:", comment: "Please specify a filename for data file:"), delegate:self, cancelButtonTitle:NSLocalizedString("Cancel", comment: "Cancel"))
+        let alert = UIAlertView()
+        alert.title = NSLocalizedString("File name", comment: "File name")
+        alert.message = NSLocalizedString("Please specify a filename for data file:", comment: "Please specify a filename for data file:")
+        alert.delegate = self
+        alert.addButtonWithTitle(NSLocalizedString("Cancel", comment: "Cancel"))
         alert.addButtonWithTitle(NSLocalizedString("OK", comment:"OK"))
         alert.alertViewStyle = .PlainTextInput;
         alert.show()
@@ -159,12 +162,23 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
     
     // UIAlertView Delegate
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
-        if buttonIndex == alertView.cancelButtonIndex + 1 {
-            let fileName = "\(alertView.textFieldAtIndex(0).text).txt"
-            path = NSHomeDirectory().stringByAppendingPathComponent("Documents")
+        if buttonIndex == 1 { // Index 1.
+            var fileName: String
+            let title = alertView.textFieldAtIndex(0).text
+            if title != "" {
+                fileName = "\(title).txt"
+            }
+            else {
+                fileName = "Default.txt"
+            }
+            
+            path = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(fileName)
             if fm.fileExistsAtPath(path) {
-                UIAlertView(title:NSLocalizedString("Error", comment: "Error"),
-                    message:NSLocalizedString("File already exists with the same name!", comment: "File already exists with the same name!"), delegate:nil, cancelButtonTitle:NSLocalizedString("OK", comment: "OK")).show()
+                let alert = UIAlertView()
+                alert.title = NSLocalizedString("Error", comment: "Error")
+                alert.message = NSLocalizedString("File already exists with the same name!", comment: "File already exists with the same name!")
+                alert.addButtonWithTitle(NSLocalizedString("OK", comment:"OK"))
+                alert.show()
             }
             else {
                 writeCoordsCacheToFile()
@@ -176,9 +190,13 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
                 startRecord(nil)
             }
         }
+        else { // Index 0.
+            println("cancel here")
+        }
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: AnyObject[]!) {
+        let newLocation = (locations as NSArray).lastObject as CLLocation
         latitudeLabel.text = NSString(format:"%.10f", newLocation.coordinate.latitude)
         longitudeLabel.text = NSString(format:"%.10f", newLocation.coordinate.longitude)
         altitudeLabel.text = NSString(format:"%.2f", newLocation.altitude)
