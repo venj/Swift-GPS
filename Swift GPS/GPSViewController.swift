@@ -31,7 +31,6 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
     @IBOutlet var showOnMapButton: UIButton
     @IBOutlet var startButton: UIButton
     @IBOutlet var theNewButton: UIButton
-    @IBOutlet var containingView: UIScrollView
     @IBOutlet var dataBarButton: UIBarButtonItem
     
     var currentLocation: CLLocation?
@@ -91,7 +90,6 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
             fm.createFileAtPath(path, contents:nil, attributes:[:])
         }
         recording = false;
-        containingView.contentSize = view.frame.size
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,21 +102,16 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
     }
 
     // #pragma mark - Navigation
-    // TODO: Finish this segue
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        if segue!.identifier == "tomap" {
+        if segue!.identifier == "GPSToMapView" {
             let dest = segue!.destinationViewController as MapViewController
-            
+            if let location: CLLocation = currentLocation {
+                dest.currentPoint = GFPoint(coord:[location.coordinate.latitude, location.coordinate.longitude])
+            }
         }
-        /*
-        if ([[segue identifier] isEqualToString:@"tomap"]) {
-            GFPoint *p = [[GFPoint alloc] initWithLatitude:self.currentLocation.coordinate.latitude longitude:self.currentLocation.coordinate.longitude];
-            [(MapViewController *)segue.destinationViewController setCurrentPoint:p];
-        } */
     }
 
     // #pragma mark - Helper Methods
-    
     @IBAction func startRecord(sender:AnyObject!) {
         if recording {
             writeCoordsCacheToFile();

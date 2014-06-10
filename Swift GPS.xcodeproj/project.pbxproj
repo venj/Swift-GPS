@@ -10,6 +10,7 @@
 		252D56F21946B8100066F52D /* GFMapRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D56F11946B8100066F52D /* GFMapRect.swift */; };
 		2536C5521941EA210088D390 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2536C5511941EA210088D390 /* Helper.swift */; };
 		254D5A061946CE5E00F36309 /* GeoAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5A051946CE5E00F36309 /* GeoAlgorithm.swift */; };
+		259E517D194741740088AC6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E339B719414B37000FC49E /* MapKit.framework */; };
 		259F70151946C5E700ED5B2A /* DeviceGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259F70141946C5E700ED5B2A /* DeviceGeometry.swift */; };
 		25E33999194146D5000FC49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E33998194146D5000FC49E /* AppDelegate.swift */; };
 		25E3399B194146D5000FC49E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E3399A194146D5000FC49E /* FirstViewController.swift */; };
@@ -63,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				259E517D194741740088AC6E /* MapKit.framework in Frameworks */,
 				F31D330D5C7C4CA7922438F4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
