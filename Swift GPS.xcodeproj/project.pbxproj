@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		252D56F21946B8100066F52D /* GFMapRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D56F11946B8100066F52D /* GFMapRect.swift */; };
 		2536C5521941EA210088D390 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2536C5511941EA210088D390 /* Helper.swift */; };
+		254D5A061946CE5E00F36309 /* GeoAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5A051946CE5E00F36309 /* GeoAlgorithm.swift */; };
+		259F70151946C5E700ED5B2A /* DeviceGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259F70141946C5E700ED5B2A /* DeviceGeometry.swift */; };
 		25E33999194146D5000FC49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E33998194146D5000FC49E /* AppDelegate.swift */; };
 		25E3399B194146D5000FC49E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E3399A194146D5000FC49E /* FirstViewController.swift */; };
 		25E3399D194146D5000FC49E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E3399C194146D5000FC49E /* SecondViewController.swift */; };
@@ -31,7 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		252D56F11946B8100066F52D /* GFMapRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GFMapRect.swift; sourceTree = "<group>"; };
 		2536C5511941EA210088D390 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		254D5A051946CE5E00F36309 /* GeoAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoAlgorithm.swift; sourceTree = "<group>"; };
+		259F70141946C5E700ED5B2A /* DeviceGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceGeometry.swift; sourceTree = "<group>"; };
 		25E33993194146D5000FC49E /* Swift GPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift GPS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E33997194146D5000FC49E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25E33998194146D5000FC49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +108,9 @@
 				25E339BD19415722000FC49E /* MapViewController.swift */,
 				25E3399C194146D5000FC49E /* SecondViewController.swift */,
 				25E339BF194157FA000FC49E /* GFPoint.swift */,
+				252D56F11946B8100066F52D /* GFMapRect.swift */,
+				259F70141946C5E700ED5B2A /* DeviceGeometry.swift */,
+				254D5A051946CE5E00F36309 /* GeoAlgorithm.swift */,
 				25E3399E194146D5000FC49E /* Main.storyboard */,
 				25E339A1194146D5000FC49E /* Images.xcassets */,
 				25E33996194146D5000FC49E /* Supporting Files */,
@@ -281,9 +290,12 @@
 				25E3399D194146D5000FC49E /* SecondViewController.swift in Sources */,
 				2536C5521941EA210088D390 /* Helper.swift in Sources */,
 				25E33999194146D5000FC49E /* AppDelegate.swift in Sources */,
+				254D5A061946CE5E00F36309 /* GeoAlgorithm.swift in Sources */,
+				252D56F21946B8100066F52D /* GFMapRect.swift in Sources */,
 				25E3399B194146D5000FC49E /* FirstViewController.swift in Sources */,
 				25E339BE19415722000FC49E /* MapViewController.swift in Sources */,
 				25E339BC19414B79000FC49E /* GPSViewController.swift in Sources */,
+				259F70151946C5E700ED5B2A /* DeviceGeometry.swift in Sources */,
 				25E339C0194157FA000FC49E /* GFPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

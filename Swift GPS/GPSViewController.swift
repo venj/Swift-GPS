@@ -9,7 +9,9 @@
 import UIKit
 import CoreLocation
 
-class GPSViewController: UIViewController, CLLocationManagerDelegate {
+let kLatestTimeStamp = "LatestTimeStampKey"
+
+class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertViewDelegate {
     
     // #pragma mark - Properties
     @IBOutlet var latitudeTitleLabel: UILabel
@@ -35,7 +37,7 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate {
     var currentLocation: CLLocation?
     var manager: CLLocationManager!
     var coords: Array<String> = []
-    var isRecording = false
+    var recording = false
     var fm: NSFileManager!
     var fh: NSFileHandle!
     var path: NSString!
@@ -44,29 +46,34 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
     }
+    
+    init(coder aDecoder: NSCoder!)  {
+        super.init(coder:aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.title = NSLocalizedString("GPS", comment: "GPS");
-        self.showOnMapButton.setTitle(NSLocalizedString("Map", comment: "Map"), forState:.Normal)
-        self.theNewButton.setTitle(NSLocalizedString("New", comment: "New"), forState:.Normal)
-        self.startButton.setTitle(NSLocalizedString("Start", comment: "Start"), forState:.Normal)
-        self.latitudeTitleLabel.text = NSLocalizedString("Latitude", comment: "Latitude");
-        self.longitudeTitleLabel.text = NSLocalizedString("Longitude", comment: "Longitude");
-        self.altitudeTitleLabel.text = NSLocalizedString("Altitude", comment: "Altitude");
-        self.hAccuracyTitleLabel.text = NSLocalizedString("H-Accu", comment: "H-Accu");
-        self.vAccuracyTitleLabel.text = NSLocalizedString("V-Accu", comment: "V-Accu");
-        self.timeTitleLabel.text = NSLocalizedString("Timestamp", comment: "Timestamp");
-        self.speedTitleLabel.text = NSLocalizedString("Speed", comment: "Speed");
-        self.dataBarButton.title = NSLocalizedString("Data", comment: "Data");
+        title = NSLocalizedString("GPS", comment: "GPS");
+        showOnMapButton.setTitle(NSLocalizedString("Map", comment: "Map"), forState:.Normal)
+        theNewButton.setTitle(NSLocalizedString("New", comment: "New"), forState:.Normal)
+        startButton.setTitle(NSLocalizedString("Start", comment: "Start"), forState:.Normal)
+        latitudeTitleLabel.text = NSLocalizedString("Latitude", comment: "Latitude");
+        longitudeTitleLabel.text = NSLocalizedString("Longitude", comment: "Longitude");
+        altitudeTitleLabel.text = NSLocalizedString("Altitude", comment: "Altitude");
+        hAccuracyTitleLabel.text = NSLocalizedString("H-Accu", comment: "H-Accu");
+        vAccuracyTitleLabel.text = NSLocalizedString("V-Accu", comment: "V-Accu");
+        timeTitleLabel.text = NSLocalizedString("Timestamp", comment: "Timestamp");
+        speedTitleLabel.text = NSLocalizedString("Speed", comment: "Speed");
+        dataBarButton.title = NSLocalizedString("Data", comment: "Data");
         
+        manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.distanceFilter = kCLDistanceFilterNone
+        manager.startUpdatingLocation()
         
-        self.manager = CLLocationManager()
-        self.manager.delegate = self
-        self.manager.desiredAccuracy = kCLLocationAccuracyBest
-        self.manager.startUpdatingLocation()
         let defaults = NSUserDefaults.standardUserDefaults()
         let latestFileName : AnyObject! = defaults.objectForKey("LatestTimeStamp")
         var fileName = ""
@@ -78,13 +85,13 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate {
             fileName = "Default.txt"
         }
         
-        self.path = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(fileName)
-        self.fm = NSFileManager.defaultManager()
-        if !self.fm.fileExistsAtPath(self.path) {
-            self.fm.createFileAtPath(self.path, contents:nil, attributes:[:])
+        path = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(fileName)
+        fm = NSFileManager.defaultManager()
+        if !fm.fileExistsAtPath(path) {
+            fm.createFileAtPath(path, contents:nil, attributes:[:])
         }
-        self.isRecording = false;
-        self.containingView.contentSize = CGSizeMake(320, 280)
+        recording = false;
+        containingView.contentSize = view.frame.size
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,10 +100,11 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewWillDisappear(animated:Bool) {
-        //self.writeCoordsCacheToFile()
+        writeCoordsCacheToFile()
     }
 
     // #pragma mark - Navigation
+    // TODO: Finish this segue
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         if segue!.identifier == "tomap" {
             let dest = segue!.destinationViewController as MapViewController
@@ -111,4 +119,86 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate {
 
     // #pragma mark - Helper Methods
     
+    @IBAction func startRecord(sender:AnyObject!) {
+        if recording {
+            writeCoordsCacheToFile();
+            theNewButton.enabled = true
+            recording = false
+            startButton.setTitle(NSLocalizedString("Start", comment:"Start"), forState:.Normal)
+        }
+        else {
+            theNewButton.enabled = false
+            recording = true
+            startButton.setTitle(NSLocalizedString("Pause", comment:"Pause"), forState:.Normal)
+        }
+    }
+    
+    func writeCoordsCacheToFile() {
+        if coords.count == 0 {
+            return
+        }
+        if !fm.fileExistsAtPath(path) {
+            fm.createFileAtPath(path, contents:nil, attributes:[:])
+        }
+        fh = NSFileHandle(forWritingAtPath:path)
+        fh.seekToEndOfFile()
+        for str in coords {
+            fh.writeData(str.dataUsingEncoding(NSUTF8StringEncoding))
+        }
+        fh.closeFile()
+        coords = []
+    }
+    
+    @IBAction func newFile(sender: AnyObject!) {
+        let alert = UIAlertView(title:NSLocalizedString("File name", comment: "File name"),
+            message:NSLocalizedString("Please specify a filename for data file:", comment: "Please specify a filename for data file:"), delegate:self, cancelButtonTitle:NSLocalizedString("Cancel", comment: "Cancel"))
+        alert.addButtonWithTitle(NSLocalizedString("OK", comment:"OK"))
+        alert.alertViewStyle = .PlainTextInput;
+        alert.show()
+    }
+    
+    // UIAlertView Delegate
+    func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
+        if buttonIndex == alertView.cancelButtonIndex + 1 {
+            let fileName = "\(alertView.textFieldAtIndex(0).text).txt"
+            path = NSHomeDirectory().stringByAppendingPathComponent("Documents")
+            if fm.fileExistsAtPath(path) {
+                UIAlertView(title:NSLocalizedString("Error", comment: "Error"),
+                    message:NSLocalizedString("File already exists with the same name!", comment: "File already exists with the same name!"), delegate:nil, cancelButtonTitle:NSLocalizedString("OK", comment: "OK")).show()
+            }
+            else {
+                writeCoordsCacheToFile()
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setObject(fileName, forKey:kLatestTimeStamp)
+                if !fm.fileExistsAtPath(path) {
+                    fm.createFileAtPath(path, contents:nil, attributes:[:])
+                }
+                startRecord(nil)
+            }
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
+        latitudeLabel.text = NSString(format:"%.10f", newLocation.coordinate.latitude)
+        longitudeLabel.text = NSString(format:"%.10f", newLocation.coordinate.longitude)
+        altitudeLabel.text = NSString(format:"%.2f", newLocation.altitude)
+        hAccuracyLabel.text = NSString(format:"%.2f", newLocation.horizontalAccuracy)
+        vAccuracyLabel.text = NSString(format:"%.2f", newLocation.verticalAccuracy)
+        let formatter = NSDateFormatter()
+        formatter.timeStyle = .MediumStyle
+        formatter.dateStyle = .ShortStyle
+        let locale = NSLocale.systemLocale()
+        formatter.locale = locale
+        timeLabel.text = formatter.stringFromDate(newLocation.timestamp)
+        speedLabel.text = NSString(format:"%.2f", newLocation.speed)
+        currentLocation = newLocation
+        
+        if recording {
+            coords.append(NSString(format:"%@,%@,%@,%@,%@,%.0f,%@\n", latitudeLabel.text, longitudeLabel.text, altitudeLabel.text, hAccuracyLabel.text, vAccuracyLabel.text, newLocation.timestamp.timeIntervalSince1970, speedLabel.text))
+            
+            if coords.count >= 10 {
+                writeCoordsCacheToFile()
+            }
+        }
+    }
 }
