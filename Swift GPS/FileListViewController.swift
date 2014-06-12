@@ -10,20 +10,20 @@ import UIKit
 
 class FileListViewController: UITableViewController {
 
-    var files: Array<String>!
+    var files: Array<String>! = []
 
     init(style: UITableViewStyle) {
         super.init(style: style)
         // Custom initialization
     }
     
-//    init(coder aDecoder: NSCoder!)  {
-//        super.init(coder:aDecoder)
-//    }
+    init(coder aDecoder: NSCoder!)  {
+        super.init(coder:aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        files = dataFiles()
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,43 +88,35 @@ class FileListViewController: UITableViewController {
                 let filePath = UserDocumentPath().stringByAppendingPathComponent(fileName)
                 let fm = NSFileManager()
                 var isDirectory: CMutablePointer<ObjCBool>
-                if fm.fileExistsAtPath(filePath, isDirectory:isDirectory) {
-                    if isDirectory == false {
-                        
+                if fm.fileExistsAtPath(filePath) {
+                    var error: NSError?
+                    fm.removeItemAtPath(filePath, error:&error)
+                    if let e = error {
+                        let alert = UIAlertView()
+                        alert.title = NSLocalizedString("Error", comment: "Error")
+                        alert.message = e.localizedDescription
+                        alert.delegate = nil
+                        alert.addButtonWithTitle(NSLocalizedString("OK", comment:"OK"))
+                        alert.show()
                     }
                 }
-                
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                files = dataFiles()
+                //files.removeAtIndex(indexPath!.row) // FIXME: Why not working?
+                tableView!.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             }
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
     
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView?, moveRowAtIndexPath fromIndexPath: NSIndexPath?, toIndexPath: NSIndexPath?) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView?, canMoveRowAtIndexPath indexPath: NSIndexPath?) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // #pragma mark - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        var indexPath = tableView!.indexPathForSelectedRow()
+        tableView.deselectRowAtIndexPath(indexPath, animated:true)
+        if let vc = segue?.destinationViewController as? FileContentViewController {
+            vc.path = files[indexPath!.row]
+        }
     }
-    */
-
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A238x" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
@@ -246,7 +247,11 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="L6Z-Fy-Gh8">
-                        <barButtonItem key="rightBarButtonItem" title="Data" id="t9S-SW-pro"/>
+                        <barButtonItem key="rightBarButtonItem" title="Data" id="t9S-SW-pro">
+                            <connections>
+                                <segue destination="j8y-Jl-Ulc" kind="show" identifier="DataFileList" id="rRK-U0-3BX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="altitudeLabel" destination="8Mz-D2-YOd" id="HTk-N7-IpM"/>
@@ -272,6 +277,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fkp-wj-lWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4431" y="507"/>
+        </scene>
+        <!--File List View Controller - Data-->
+        <scene sceneID="REB-Gh-Ab6">
+            <objects>
+                <tableViewController id="j8y-Jl-Ulc" customClass="FileListViewController" customModule="Swift_GPS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="s7w-qM-ooU">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FileNameIdentifier" id="eXt-dL-9Cz">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eXt-dL-9Cz" id="XYI-yY-F6A">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="PQD-DT-XNW" kind="show" id="cMx-Kl-WZh"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="j8y-Jl-Ulc" id="DdA-ZP-OUy"/>
+                            <outlet property="delegate" destination="j8y-Jl-Ulc" id="4jf-eg-3sc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Data" id="8lk-8v-nzm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ZDL-Zz-krU">
+                            <connections>
+                                <action selector="refreshFileList:" destination="j8y-Jl-Ulc" id="KFB-0N-QuQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ses-8U-B7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5021" y="-41"/>
+        </scene>
+        <!--File Content View Controller-->
+        <scene sceneID="gpG-EJ-kr0">
+            <objects>
+                <viewController id="PQD-DT-XNW" customClass="FileContentViewController" customModule="Swift_GPS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wzX-gW-dxT"/>
+                        <viewControllerLayoutGuide type="bottom" id="KiW-NM-DS4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jUs-Va-N9Z">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXy-1j-BNu">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iXy-1j-BNu" firstAttribute="leading" secondItem="jUs-Va-N9Z" secondAttribute="leading" id="MUG-fW-XMe"/>
+                            <constraint firstItem="iXy-1j-BNu" firstAttribute="top" secondItem="jUs-Va-N9Z" secondAttribute="top" id="bSI-zd-MrQ"/>
+                            <constraint firstAttribute="trailing" secondItem="iXy-1j-BNu" secondAttribute="trailing" id="urL-Rd-Wem"/>
+                            <constraint firstAttribute="bottom" secondItem="iXy-1j-BNu" secondAttribute="bottom" id="wMe-cw-NcP"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vdB-oE-4lE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Bxd-et-EGm">
+                            <connections>
+                                <action selector="reloadFile:" destination="PQD-DT-XNW" id="qt9-ot-mRl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="iXy-1j-BNu" id="3HS-St-YcK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Doc-GH-TJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5602" y="-41"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="aug-Aj-NUW">
