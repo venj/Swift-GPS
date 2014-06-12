@@ -84,7 +84,7 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
             fileName = "Default.txt"
         }
         
-        path = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(fileName)
+        path = UserDocumentPath().stringByAppendingPathComponent(fileName)
         fm = NSFileManager.defaultManager()
         if !fm.fileExistsAtPath(path) {
             fm.createFileAtPath(path, contents:nil, attributes:[:])
@@ -165,7 +165,7 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
                 fileName = "Default.txt"
             }
             
-            path = NSHomeDirectory().stringByAppendingPathComponent("Documents").stringByAppendingPathComponent(fileName)
+            path = UserDocumentPath().stringByAppendingPathComponent(fileName)
             if fm.fileExistsAtPath(path) {
                 let alert = UIAlertView()
                 alert.title = NSLocalizedString("Error", comment: "Error")

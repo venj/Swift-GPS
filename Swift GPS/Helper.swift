@@ -34,3 +34,7 @@ extension UIDevice {
         return self.systemVersion.componentsSeparatedByString(".")[0].toInt()
     }
 }
+
+func UserDocumentPath() -> String {
+    return NSHomeDirectory().stringByAppendingPathComponent("Documents")
+}

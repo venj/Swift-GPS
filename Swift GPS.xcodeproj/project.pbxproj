@@ -10,11 +10,10 @@
 		252D56F21946B8100066F52D /* GFMapRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D56F11946B8100066F52D /* GFMapRect.swift */; };
 		2536C5521941EA210088D390 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2536C5511941EA210088D390 /* Helper.swift */; };
 		254D5A061946CE5E00F36309 /* GeoAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5A051946CE5E00F36309 /* GeoAlgorithm.swift */; };
+		25848B861949A415007CA030 /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25848B851949A415007CA030 /* FileListViewController.swift */; };
 		259E517D194741740088AC6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E339B719414B37000FC49E /* MapKit.framework */; };
 		259F70151946C5E700ED5B2A /* DeviceGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259F70141946C5E700ED5B2A /* DeviceGeometry.swift */; };
 		25E33999194146D5000FC49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E33998194146D5000FC49E /* AppDelegate.swift */; };
-		25E3399B194146D5000FC49E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E3399A194146D5000FC49E /* FirstViewController.swift */; };
-		25E3399D194146D5000FC49E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E3399C194146D5000FC49E /* SecondViewController.swift */; };
 		25E339A0194146D5000FC49E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E3399E194146D5000FC49E /* Main.storyboard */; };
 		25E339A2194146D5000FC49E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25E339A1194146D5000FC49E /* Images.xcassets */; };
 		25E339AE194146D5000FC49E /* Swift_GPSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E339AD194146D5000FC49E /* Swift_GPSTests.swift */; };
@@ -38,12 +37,11 @@
 		252D56F11946B8100066F52D /* GFMapRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GFMapRect.swift; sourceTree = "<group>"; };
 		2536C5511941EA210088D390 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		254D5A051946CE5E00F36309 /* GeoAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoAlgorithm.swift; sourceTree = "<group>"; };
+		25848B851949A415007CA030 /* FileListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileListViewController.swift; sourceTree = "<group>"; };
 		259F70141946C5E700ED5B2A /* DeviceGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceGeometry.swift; sourceTree = "<group>"; };
 		25E33993194146D5000FC49E /* Swift GPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift GPS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E33997194146D5000FC49E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25E33998194146D5000FC49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		25E3399A194146D5000FC49E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		25E3399C194146D5000FC49E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		25E3399F194146D5000FC49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25E339A1194146D5000FC49E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		25E339A7194146D5000FC49E /* Swift GPSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift GPSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,10 +103,9 @@
 				25E339C119415B30000FC49E /* SwiftGPS.playground */,
 				2536C5511941EA210088D390 /* Helper.swift */,
 				25E33998194146D5000FC49E /* AppDelegate.swift */,
-				25E3399A194146D5000FC49E /* FirstViewController.swift */,
 				25E339BB19414B79000FC49E /* GPSViewController.swift */,
 				25E339BD19415722000FC49E /* MapViewController.swift */,
-				25E3399C194146D5000FC49E /* SecondViewController.swift */,
+				25848B851949A415007CA030 /* FileListViewController.swift */,
 				25E339BF194157FA000FC49E /* GFPoint.swift */,
 				252D56F11946B8100066F52D /* GFMapRect.swift */,
 				259F70141946C5E700ED5B2A /* DeviceGeometry.swift */,
@@ -289,13 +286,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25E3399D194146D5000FC49E /* SecondViewController.swift in Sources */,
 				2536C5521941EA210088D390 /* Helper.swift in Sources */,
 				25E33999194146D5000FC49E /* AppDelegate.swift in Sources */,
 				254D5A061946CE5E00F36309 /* GeoAlgorithm.swift in Sources */,
 				252D56F21946B8100066F52D /* GFMapRect.swift in Sources */,
-				25E3399B194146D5000FC49E /* FirstViewController.swift in Sources */,
 				25E339BE19415722000FC49E /* MapViewController.swift in Sources */,
+				25848B861949A415007CA030 /* FileListViewController.swift in Sources */,
 				25E339BC19414B79000FC49E /* GPSViewController.swift in Sources */,
 				259F70151946C5E700ED5B2A /* DeviceGeometry.swift in Sources */,
 				25E339C0194157FA000FC49E /* GFPoint.swift in Sources */,
