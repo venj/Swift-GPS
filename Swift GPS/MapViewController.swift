@@ -12,8 +12,8 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     var currentPoint: GFPoint!
-    @IBOutlet var mapView: MKMapView!
-    @IBOutlet var mapTypeSegmentControl: UISegmentedControl!
+    @IBOutlet var mapView: MKMapView
+    @IBOutlet var mapTypeSegmentControl: UISegmentedControl
 
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -32,7 +32,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapTypeSegmentControl.setTitle(NSLocalizedString("Hybrid", comment: "Hybrid"), forSegmentAtIndex: 2);
         
         if self.mapView.annotations.count <= 1 {
-            NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector:Selector("timerAction:"), userInfo: nil, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector:"timerAction:", userInfo: nil, repeats: false)
             let height = 0.01
             let span = MKCoordinateSpanMake(0.75 * height, height);
             let centerCoord = currentPoint!.coordinate;
