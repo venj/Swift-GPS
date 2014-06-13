@@ -9,8 +9,8 @@ Use Swift to recreate [Easy GPS](https://github.com/venj/Easy-GPS) app, as pract
 Status
 ------
 
-Just begin. ;) 
+Almost finished! ;)
 
 ```
-0%[=====30%=====>-----------------------------]100%
+0%[===================90%================>----]100%
 ```

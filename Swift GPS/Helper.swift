@@ -28,7 +28,6 @@ extension Double {
     }
 }
 
-
 extension UIDevice {
     func deviceMajorVersion() -> Int! {
         return self.systemVersion.componentsSeparatedByString(".")[0].toInt()

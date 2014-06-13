@@ -11,7 +11,7 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
-    var currentPoint: GFPoint?
+    var currentPoint: GFPoint!
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var mapTypeSegmentControl: UISegmentedControl!
 
