@@ -1,0 +1,93 @@
+/* Class = "IBUILabel"; text = "Longitude"; ObjectID = "3ah-Lk-tv7";  */
+"3ah-Lk-tv7.text" = "经度";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "8Mz-D2-YOd";  */
+"8Mz-D2-YOd.text" = "0";
+
+/* Class = "IBUINavigationItem"; title = "Data"; ObjectID = "8lk-8v-nzm";  */
+"8lk-8v-nzm.title" = "数据";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "79U-B9-BaD";  */
+"79U-B9-BaD.text" = "0";
+
+/* Class = "IBUILabel"; text = "V-Accu"; ObjectID = "Ahx-bl-EWP";  */
+"Ahx-bl-EWP.text" = "垂直精度";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "Emx-x2-I18";  */
+"Emx-x2-I18.text" = "0";
+
+/* Class = "IBUIButton"; normalTitle = "Start"; ObjectID = "GXR-Jw-Wp2";  */
+"GXR-Jw-Wp2.normalTitle" = "开始";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "Ilb-kl-eWc";  */
+"Ilb-kl-eWc.text" = "0";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "JC3-5v-cVI";  */
+"JC3-5v-cVI.text" = "0";
+
+/* Class = "IBUISegmentedControl"; JCR-ab-8tV.segmentTitles[0] = "Map"; ObjectID = "JCR-ab-8tV";  */
+"JCR-ab-8tV.segmentTitles[0]" = "地图";
+
+/* Class = "IBUISegmentedControl"; JCR-ab-8tV.segmentTitles[1] = "Satellite"; ObjectID = "JCR-ab-8tV";  */
+"JCR-ab-8tV.segmentTitles[1]" = "卫星";
+
+/* Class = "IBUISegmentedControl"; JCR-ab-8tV.segmentTitles[2] = "Hybrid"; ObjectID = "JCR-ab-8tV";  */
+"JCR-ab-8tV.segmentTitles[2]" = "混合";
+
+/* Class = "IBUINavigationItem"; title = "Distance"; ObjectID = "KP4-wA-8nM";  */
+"KP4-wA-8nM.title" = "距离";
+
+/* Class = "IBUITabBarItem"; title = "Distance"; ObjectID = "N9g-tK-e7B";  */
+"N9g-tK-e7B.title" = "距离";
+
+/* Class = "IBUIButton"; normalTitle = "Calculate"; ObjectID = "OqQ-8i-3aL";  */
+"OqQ-8i-3aL.normalTitle" = "计算";
+
+/* Class = "IBUILabel"; text = "Speed"; ObjectID = "PNP-F9-6ed";  */
+"PNP-F9-6ed.text" = "速度";
+
+/* Class = "IBUITabBarItem"; title = "GPS"; ObjectID = "Pk5-Fl-q0g";  */
+"Pk5-Fl-q0g.title" = "GPS";
+
+/* Class = "IBUIButton"; normalTitle = "Current"; ObjectID = "UK0-Yz-FmB";  */
+"UK0-Yz-FmB.normalTitle" = "当前坐标";
+
+/* Class = "IBUILabel"; text = "Latitude"; ObjectID = "UrD-KX-jcw";  */
+"UrD-KX-jcw.text" = "纬度";
+
+/* Class = "IBUIButton"; normalTitle = "From"; ObjectID = "Usj-t4-ia3";  */
+"Usj-t4-ia3.normalTitle" = "起点";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "XEl-q8-d58";  */
+"XEl-q8-d58.text" = "0";
+
+/* Class = "IBUILabel"; text = "Time Stamp"; ObjectID = "aBH-o1-KRY";  */
+"aBH-o1-KRY.text" = "时间戳";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "aea-l2-iL8";  */
+"aea-l2-iL8.text" = "0";
+
+/* Class = "IBUIButton"; normalTitle = "New"; ObjectID = "fcu-bw-F4A";  */
+"fcu-bw-F4A.normalTitle" = "新建";
+
+/* Class = "IBUITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "iXy-1j-BNu";  */
+"iXy-1j-BNu.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "IBUILabel"; text = "H-Accu"; ObjectID = "ktq-Dm-DPs";  */
+"ktq-Dm-DPs.text" = "水平精度";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "lHE-Ta-Jds";  */
+"lHE-Ta-Jds.text" = "0";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "roa-xh-dtd";  */
+"roa-xh-dtd.text" = "0";
+
+/* Class = "IBUIButton"; normalTitle = "Map"; ObjectID = "s70-mQ-ZBt";  */
+"s70-mQ-ZBt.normalTitle" = "地图";
+
+/* Class = "IBUIButton"; normalTitle = "To"; ObjectID = "t6K-oQ-6nF";  */
+"t6K-oQ-6nF.normalTitle" = "终点";
+
+/* Class = "IBUILabel"; text = "Altitude"; ObjectID = "wSa-Cm-YP5";  */
+"wSa-Cm-YP5.text" = "海拔";
+

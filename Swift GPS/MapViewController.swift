@@ -11,7 +11,7 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
-    var currentPoint: GFPoint!
+    var currentPoint: GFPoint = GFPoint(coord:[0.0, 0.0])
     @IBOutlet var mapView: MKMapView
     @IBOutlet var mapTypeSegmentControl: UISegmentedControl
 
@@ -35,7 +35,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector:"timerAction:", userInfo: nil, repeats: false)
             let height = 0.01
             let span = MKCoordinateSpanMake(0.75 * height, height);
-            let centerCoord = currentPoint!.coordinate;
+            let centerCoord = currentPoint.coordinate;
             let visibleRegion = MKCoordinateRegionMake(centerCoord, span);
             mapView.setRegion(visibleRegion, animated:true)
         }

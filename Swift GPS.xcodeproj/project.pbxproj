@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25146176194D4E25003770D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25146178194D4E25003770D5 /* InfoPlist.strings */; };
+		2514617A194D4E26003770D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2514617C194D4E26003770D5 /* Localizable.strings */; };
+		2514617E194D4E28003770D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25146180194D4E28003770D5 /* InfoPlist.strings */; };
 		252D56F21946B8100066F52D /* GFMapRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D56F11946B8100066F52D /* GFMapRect.swift */; };
 		2536C5521941EA210088D390 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2536C5511941EA210088D390 /* Helper.swift */; };
 		254D5A061946CE5E00F36309 /* GeoAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D5A051946CE5E00F36309 /* GeoAlgorithm.swift */; };
@@ -36,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25146177194D4E25003770D5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		2514617B194D4E26003770D5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2514617F194D4E28003770D5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		25146181194D4E28003770D5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		252D56F11946B8100066F52D /* GFMapRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GFMapRect.swift; sourceTree = "<group>"; };
 		2536C5511941EA210088D390 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		254D5A051946CE5E00F36309 /* GeoAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoAlgorithm.swift; sourceTree = "<group>"; };
@@ -126,6 +133,8 @@
 		25E33996194146D5000FC49E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2514617C194D4E26003770D5 /* Localizable.strings */,
+				25146178194D4E25003770D5 /* InfoPlist.strings */,
 				25E33997194146D5000FC49E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -143,6 +152,7 @@
 		25E339AB194146D5000FC49E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				25146180194D4E28003770D5 /* InfoPlist.strings */,
 				25E339AC194146D5000FC49E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -241,6 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				25E339A0194146D5000FC49E /* Main.storyboard in Resources */,
+				2514617A194D4E26003770D5 /* Localizable.strings in Resources */,
+				25146176194D4E25003770D5 /* InfoPlist.strings in Resources */,
 				25E339A2194146D5000FC49E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2514617E194D4E28003770D5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,10 +338,35 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		25146178194D4E25003770D5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25146177194D4E25003770D5 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2514617C194D4E26003770D5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2514617B194D4E26003770D5 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		25146180194D4E28003770D5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2514617F194D4E28003770D5 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		25E3399E194146D5000FC49E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				25E3399F194146D5000FC49E /* Base */,
+				25146181194D4E28003770D5 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

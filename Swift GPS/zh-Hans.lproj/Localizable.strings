@@ -1,0 +1,69 @@
+/* %.2f yd / %.2f m  */
+"%.2f yd / %.2f m" = "%1$.2f码/%2$.2f米";
+
+/* Alt: %.2f H-Acc: %.2f V-Acc: %.2f  */
+"Alt: %.2f H-Acc: %.2f V-Acc: %.2f" = "海拔: %1$.2f 水平精度: %2$.2f 垂直精度: %3$.2f";
+
+/* Altitude  */
+"Altitude" = "海拔";
+
+/* Cancel  */
+"Cancel" = "取消";
+
+/* Data  */
+"Data" = "数据";
+
+/* Error  */
+"Error" = "错误";
+
+/* File already exists with the same name!  */
+"File already exists with the same name!" = "同名文件已存在！";
+
+/* File name  */
+"File name" = "文件名";
+
+/* GPS  */
+"GPS" = "GPS";
+
+/* H-Accu  */
+"H-Accu" = "水平精度";
+
+/* Hybrid  */
+"Hybrid" = "混合";
+
+/* Latitude  */
+"Latitude" = "纬度";
+
+/* Longitude  */
+"Longitude" = "经度";
+
+/* Map  */
+"Map" = "地图";
+
+/* New  */
+"New" = "新建";
+
+/* OK  */
+"OK" = "确定";
+
+/* Pause  */
+"Pause" = "暂停";
+
+/* Please specify a filename for data file:  */
+"Please specify a filename for data file:" = "请创建一个数据文件的名字：";
+
+/* Satellite  */
+"Satellite" = "卫星";
+
+/* Speed  */
+"Speed" = "速度";
+
+/* Start  */
+"Start" = "开始";
+
+/* Timestamp  */
+"Timestamp" = "时间戳";
+
+/* V-Accu  */
+"V-Accu" = "垂直精度";
+

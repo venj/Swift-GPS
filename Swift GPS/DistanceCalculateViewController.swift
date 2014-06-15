@@ -81,7 +81,7 @@ class DistanceCalculateViewController: UIViewController, CLLocationManagerDelega
         let from = GFPoint(coord:[fromLat, fromLng])
         let to = GFPoint(coord:[toLat, toLng])
         let distance = getDistanceFromPoints(from, to)
-        distanceLabel.text = NSString(format:NSLocalizedString("%.2f yd / %.2f m", comment: "%.2f yd / %.2f m"), fabs(distance), fabs(distance) / YardPerMeter)
+        distanceLabel.text = NSString.localizedStringWithFormat(NSLocalizedString("%.2f yd / %.2f m", comment: "%.2f yd / %.2f m"), fabs(distance), fabs(distance) / YardPerMeter)
     }
     
     // #pragma mark - Navigation
@@ -102,7 +102,7 @@ class DistanceCalculateViewController: UIViewController, CLLocationManagerDelega
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: AnyObject[]!) {
         if let locationArray = locations as? CLLocation[] {
             let newLocation = locationArray[locationArray.count - 1]
-            infoLabel.text = NSString(format:NSLocalizedString("Alt: %.2f H-Acc: %.2f V-Acc: %.2f", comment:"Alt: %.2f H-Acc: %.2f V-Acc: %.2f"), newLocation.altitude, newLocation.horizontalAccuracy, newLocation.verticalAccuracy)
+            infoLabel.text = NSString.localizedStringWithFormat(NSLocalizedString("Alt: %.2f H-Acc: %.2f V-Acc: %.2f", comment:"Alt: %.2f H-Acc: %.2f V-Acc: %.2f"), newLocation.altitude, newLocation.horizontalAccuracy, newLocation.verticalAccuracy)
             currentLocation = newLocation;
         }
     }
