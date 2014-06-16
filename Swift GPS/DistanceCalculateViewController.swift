@@ -55,10 +55,9 @@ class DistanceCalculateViewController: UIViewController, CLLocationManagerDelega
     
     @IBAction func getCurrentLocation(sender: AnyObject!) {
         //Fixme: Failed with capture list. Fall back to traditional resolution.
-        weak var weakSelf = self
-        dispatch_async(dispatch_get_main_queue()) {
-            weakSelf!.toLatField.text = NSString(format:"%.8f", weakSelf!.currentLocation.coordinate.latitude)
-            weakSelf!.toLngField.text = NSString(format:"%.8f", weakSelf!.currentLocation.coordinate.longitude)
+        dispatch_async(dispatch_get_main_queue()) { [weak self] in
+            self!.toLatField.text = NSString(format:"%.8f", self!.currentLocation.coordinate.latitude)
+            self!.toLngField.text = NSString(format:"%.8f", self!.currentLocation.coordinate.longitude)
         }
     }
     
