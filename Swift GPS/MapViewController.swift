@@ -12,8 +12,8 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     var currentPoint: GFPoint = GFPoint(coord:[0.0, 0.0])
-    @IBOutlet var mapView: MKMapView
-    @IBOutlet var mapTypeSegmentControl: UISegmentedControl
+    @IBOutlet var mapView: MKMapView!
+    @IBOutlet var mapTypeSegmentControl: UISegmentedControl!
 
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

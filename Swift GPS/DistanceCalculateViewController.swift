@@ -11,12 +11,12 @@ import CoreLocation
 
 class DistanceCalculateViewController: UIViewController, CLLocationManagerDelegate {
     
-    @IBOutlet var fromLatField: UITextField
-    @IBOutlet var fromLngField: UITextField
-    @IBOutlet var toLatField: UITextField
-    @IBOutlet var toLngField: UITextField
-    @IBOutlet var distanceLabel: UILabel
-    @IBOutlet var infoLabel: UILabel
+    @IBOutlet var fromLatField: UITextField!
+    @IBOutlet var fromLngField: UITextField!
+    @IBOutlet var toLatField: UITextField!
+    @IBOutlet var toLngField: UITextField!
+    @IBOutlet var distanceLabel: UILabel!
+    @IBOutlet var infoLabel: UILabel!
     
     var currentLocation: CLLocation!
     var manager: CLLocationManager!
@@ -98,8 +98,8 @@ class DistanceCalculateViewController: UIViewController, CLLocationManagerDelega
     }
     
     // #pragma mark - CLLocation Manager Delegate
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: AnyObject[]!) {
-        if let locationArray = locations as? CLLocation[] {
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        if let locationArray = locations as? [CLLocation] {
             let newLocation = locationArray[locationArray.count - 1]
             infoLabel.text = NSString.localizedStringWithFormat(NSLocalizedString("Alt: %.2f H-Acc: %.2f V-Acc: %.2f", comment:"Alt: %.2f H-Acc: %.2f V-Acc: %.2f"), newLocation.altitude, newLocation.horizontalAccuracy, newLocation.verticalAccuracy)
             currentLocation = newLocation;

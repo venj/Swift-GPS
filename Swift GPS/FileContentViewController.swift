@@ -14,7 +14,7 @@ class FileContentViewController: UIViewController {
     var timer: NSTimer {
     return NSTimer.scheduledTimerWithTimeInterval(15, target:self, selector:"reloadFile", userInfo:nil, repeats:false)
     }
-    @IBOutlet var textView: UITextView
+    @IBOutlet var textView: UITextView!
     
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {

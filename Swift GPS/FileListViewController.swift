@@ -89,7 +89,7 @@ class FileListViewController: UITableViewController {
                 let fm = NSFileManager()
                 var isDir: ObjCBool = false
                 // FIXME: Maybe wrong calling this method.
-                if fm.fileExistsAtPath(filePath, isDirectory:&isDir) && !(isDir as Bool) {
+                if fm.fileExistsAtPath(filePath, isDirectory:&isDir) && !(Bool(isDir)) {
                     var error: NSError?
                     fm.removeItemAtPath(filePath, error:&error)
                     if let e = error {

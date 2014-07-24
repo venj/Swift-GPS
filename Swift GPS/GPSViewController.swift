@@ -14,24 +14,24 @@ let kLatestTimeStamp = "LatestTimeStampKey"
 class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertViewDelegate {
     
     // #pragma mark - Properties
-    @IBOutlet var latitudeTitleLabel: UILabel
-    @IBOutlet var latitudeLabel: UILabel
-    @IBOutlet var longitudeTitleLabel: UILabel
-    @IBOutlet var longitudeLabel: UILabel
-    @IBOutlet var altitudeTitleLabel: UILabel
-    @IBOutlet var altitudeLabel: UILabel
-    @IBOutlet var hAccuracyTitleLabel: UILabel
-    @IBOutlet var hAccuracyLabel: UILabel
-    @IBOutlet var vAccuracyTitleLabel: UILabel
-    @IBOutlet var vAccuracyLabel: UILabel
-    @IBOutlet var timeTitleLabel: UILabel
-    @IBOutlet var timeLabel: UILabel
-    @IBOutlet var speedTitleLabel: UILabel
-    @IBOutlet var speedLabel: UILabel
-    @IBOutlet var showOnMapButton: UIButton
-    @IBOutlet var startButton: UIButton
-    @IBOutlet var theNewButton: UIButton
-    @IBOutlet var dataBarButton: UIBarButtonItem
+    @IBOutlet var latitudeTitleLabel: UILabel!
+    @IBOutlet var latitudeLabel: UILabel!
+    @IBOutlet var longitudeTitleLabel: UILabel!
+    @IBOutlet var longitudeLabel: UILabel!
+    @IBOutlet var altitudeTitleLabel: UILabel!
+    @IBOutlet var altitudeLabel: UILabel!
+    @IBOutlet var hAccuracyTitleLabel: UILabel!
+    @IBOutlet var hAccuracyLabel: UILabel!
+    @IBOutlet var vAccuracyTitleLabel: UILabel!
+    @IBOutlet var vAccuracyLabel: UILabel!
+    @IBOutlet var timeTitleLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var speedTitleLabel: UILabel!
+    @IBOutlet var speedLabel: UILabel!
+    @IBOutlet var showOnMapButton: UIButton!
+    @IBOutlet var startButton: UIButton!
+    @IBOutlet var theNewButton: UIButton!
+    @IBOutlet var dataBarButton: UIBarButtonItem!
     
     var currentLocation: CLLocation?
     var manager: CLLocationManager!
@@ -188,7 +188,7 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: AnyObject[]!) {
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         let newLocation = (locations as NSArray).lastObject as CLLocation
         latitudeLabel.text = NSString(format:"%.10f", newLocation.coordinate.latitude)
         longitudeLabel.text = NSString(format:"%.10f", newLocation.coordinate.longitude)

@@ -24,7 +24,7 @@ class GFPoint: NSObject, MKAnnotation {
         self.y = y
     }
     
-    @required convenience init(string:String) {
+    required convenience init(string:String) {
         let comps = string.componentsSeparatedByString(",")
         if comps.count != 2 {
             self.init()
