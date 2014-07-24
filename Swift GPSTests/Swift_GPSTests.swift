@@ -2,10 +2,11 @@
 //  Swift_GPSTests.swift
 //  Swift GPSTests
 //
-//  Created by Venj Chu on 14/6/6.
+//  Created by Venj Chu on 14/7/24.
 //  Copyright (c) 2014年 Venj Chu. All rights reserved.
 //
 
+import UIKit
 import XCTest
 
 class Swift_GPSTests: XCTestCase {

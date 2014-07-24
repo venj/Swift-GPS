@@ -9,7 +9,7 @@
 import Foundation
 
 // Returns distance in meters.
-func getDistanceFromPoints(p1: GFPoint, p2: GFPoint) -> Double {
+func getDistanceFromPoints(p1: Point, p2: Point) -> Double {
     func degreeToRadians(d: Double) -> Double {
         return (d * PI / 180.0)
     }

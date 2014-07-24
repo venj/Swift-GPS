@@ -77,8 +77,8 @@ class DistanceCalculateViewController: UIViewController, CLLocationManagerDelega
             return;
         }
         
-        let from = GFPoint(coord:[fromLat, fromLng])
-        let to = GFPoint(coord:[toLat, toLng])
+        let from = Point(coord:[fromLat, fromLng])
+        let to = Point(coord:[toLat, toLng])
         let distance = getDistanceFromPoints(from, to)
         distanceLabel.text = NSString.localizedStringWithFormat(NSLocalizedString("%.2f yd / %.2f m", comment: "%.2f yd / %.2f m"), fabs(distance), fabs(distance) / YardPerMeter)
     }
@@ -87,11 +87,11 @@ class DistanceCalculateViewController: UIViewController, CLLocationManagerDelega
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         if let s = segue {
             if (s.identifier == "FromToMap") {
-                let p = GFPoint(coord:[Double(fromLatField.text), Double(fromLngField.text)]);
+                let p = Point(coord:[Double(fromLatField.text), Double(fromLngField.text)]);
                 (s.destinationViewController as MapViewController).currentPoint = p
             }
             if (s.identifier == "ToToMap") {
-                let p = GFPoint(coord:[Double(toLatField.text), Double(toLngField.text)]);
+                let p = Point(coord:[Double(toLatField.text), Double(toLngField.text)]);
                 (s.destinationViewController as MapViewController).currentPoint = p
             }
         }

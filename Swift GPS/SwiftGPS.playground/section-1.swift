@@ -16,7 +16,7 @@ extension Double {
     }
 }
 
-class GFPoint: NSObject, MKAnnotation {
+class Point: NSObject, MKAnnotation {
     var x: Double
     var y: Double
     var title: String!
@@ -30,7 +30,7 @@ class GFPoint: NSObject, MKAnnotation {
         self.y = y
     }
     
-    @required convenience init(string:String) {
+    required convenience init(string:String) {
         let comps = string.componentsSeparatedByString(",")
         if comps.count != 2 {
             self.init()
@@ -55,8 +55,8 @@ class GFPoint: NSObject, MKAnnotation {
         self.init(x: lat, y: lng)
     }
     
-    class func arrayWithStringArray(coords: Array<String>) -> Array<GFPoint> {
-        var coordArray = Array<GFPoint>()
+    class func arrayWithStringArray(coords: Array<String>) -> Array<Point> {
+        var coordArray = Array<Point>()
         for s in coords {
             coordArray.append(self(string:s))
         }
@@ -68,8 +68,8 @@ class GFPoint: NSObject, MKAnnotation {
     }
 }
 
-let ps = GFPoint.arrayWithStringArray(["30.1, 120.0", "31.1, 120.0"])
-let p = GFPoint()
+let ps = Point.arrayWithStringArray(["30.1, 120.0", "31.1, 120.0"])
+let p = Point()
 
 extension UIDevice {
     func deviceMajorVersion() -> Int! {
@@ -101,7 +101,7 @@ struct DeviceGeometry {
 (DeviceGeometry.mapCenterX, DeviceGeometry.mapCenterY)
 
 // Returns distance in meters.
-func getDistanceFromPoints(p1: GFPoint, p2: GFPoint) -> Double {
+func getDistanceFromPoints(p1: Point, p2: Point) -> Double {
     func degreeToRadians(d: Double) -> Double {
         return (d * PI / 180.0)
     }
@@ -116,6 +116,6 @@ func getDistanceFromPoints(p1: GFPoint, p2: GFPoint) -> Double {
     return s
 }
 
-getDistanceFromPoints(GFPoint(string: "31.0, 120.0"), GFPoint(string: "30.0, 120.0"))
+getDistanceFromPoints(Point(string: "31.0, 120.0"), Point(string: "30.0, 120.0"))
 
 

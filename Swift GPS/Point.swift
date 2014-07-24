@@ -1,5 +1,5 @@
 //
-//  GFPoint.swift
+//  Point.swift
 //  Swift GPS
 //
 //  Created by Venj Chu on 14/6/6.
@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class GFPoint: NSObject, MKAnnotation {
+class Point: NSObject, MKAnnotation {
     var x: Double
     var y: Double
     var title: String!
@@ -49,8 +49,8 @@ class GFPoint: NSObject, MKAnnotation {
         self.init(x: lat, y: lng)
     }
     
-    class func arrayWithStringArray(coords: Array<String>) -> Array<GFPoint> {
-        var coordArray = Array<GFPoint>()
+    class func arrayWithStringArray(coords: Array<String>) -> Array<Point> {
+        var coordArray = Array<Point>()
         for s in coords {
             coordArray.append(self(string:s))
         }

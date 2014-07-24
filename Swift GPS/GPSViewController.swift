@@ -106,7 +106,7 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
         if segue!.identifier == "GPSToMapView" {
             let dest = segue!.destinationViewController as MapViewController
             if let location: CLLocation = currentLocation {
-                dest.currentPoint = GFPoint(coord:[location.coordinate.latitude, location.coordinate.longitude])
+                dest.currentPoint = Point(coord:[location.coordinate.latitude, location.coordinate.longitude])
             }
         }
     }

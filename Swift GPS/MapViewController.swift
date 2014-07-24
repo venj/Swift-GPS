@@ -11,7 +11,7 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
-    var currentPoint: GFPoint = GFPoint(coord:[0.0, 0.0])
+    var currentPoint: Point = Point(coord:[0.0, 0.0])
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var mapTypeSegmentControl: UISegmentedControl!
 
@@ -66,7 +66,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: AnnotationIdentifier)
             pinView.animatesDrop = true
             pinView.canShowCallout = true
-            if let anno = annotation as? GFPoint {
+            if let anno = annotation as? Point {
                 anno.title = NSString(format:"%8f,%8f", anno.coordinate.latitude, anno.coordinate.longitude)
             }
             return pinView
