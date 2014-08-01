@@ -16,7 +16,10 @@ class Point: NSObject, MKAnnotation {
     var title: String!
     var subtitle: String!
     var coordinate: CLLocationCoordinate2D {
-    return CLLocationCoordinate2DMake(self.x, self.y)
+    return CLLocationCoordinate2DMake(x, y)
+    }
+    var location: CLLocation {
+    return CLLocation(latitude:x, longitude: y)
     }
     
     init(x:Double = 0.0, y:Double = 0.0) {
