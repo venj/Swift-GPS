@@ -15,12 +15,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var mapTypeSegmentControl: UISegmentedControl!
 
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
     }
     
-    init(coder aDecoder: NSCoder!)  {
+    required init(coder aDecoder: NSCoder!)  {
         super.init(coder:aDecoder)
     }
     
