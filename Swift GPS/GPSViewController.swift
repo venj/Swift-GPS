@@ -41,12 +41,12 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
     var fh: NSFileHandle!
     var path: NSString!
 
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
     }
     
-    init(coder aDecoder: NSCoder!)  {
+    required init(coder aDecoder: NSCoder!)  {
         super.init(coder:aDecoder)
     }
 

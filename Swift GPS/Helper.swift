@@ -8,9 +8,6 @@
 
 import UIKit
 
-let EarthRadiusL = 6378.137
-let EarthRadiusS = 6356.755
-let PI = 3.141592653589793
 let YardPerMeter = 1.093613298
 
 extension String {
