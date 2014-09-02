@@ -71,7 +71,9 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = kCLDistanceFilterNone
-        manager.requestWhenInUseAuthorization();
+        if manager.respondsToSelector("requestWhenInUseAuthorization") {
+            manager.requestWhenInUseAuthorization()
+        }
         manager.startUpdatingLocation()
         
         let defaults = NSUserDefaults.standardUserDefaults()
