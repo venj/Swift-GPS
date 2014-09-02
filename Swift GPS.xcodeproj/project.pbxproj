@@ -35,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2573B78319B5A4C1009BBB5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		259181211980DBA5001C296C /* Swift GPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift GPS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		259181251980DBA5001C296C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259181261980DBA5001C296C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -289,6 +290,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				259181581980DC5C001C296C /* zh-Hans */,
+				2573B78319B5A4C1009BBB5C /* Base */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

@@ -1,1 +1,2 @@
 /* No Localized Strings */
+NSLocationWhenInUseUsageDescription = "哥们，这是个GPS程序啊，当然要你允许我使用位置信息的啦！";
