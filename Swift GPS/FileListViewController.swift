@@ -17,7 +17,7 @@ class FileListViewController: UITableViewController {
         // Custom initialization
     }
     
-    required init(coder aDecoder: NSCoder!)  {
+    required init(coder aDecoder: NSCoder)  {
         super.init(coder:aDecoder)
     }
 
@@ -84,7 +84,7 @@ class FileListViewController: UITableViewController {
         if editingStyle == .Delete {
             // Delete the row from the data source
             let fileName = tableView!.cellForRowAtIndexPath(indexPath!).textLabel.text
-            if fileName {
+            if (fileName != nil) {
                 let filePath = UserDocumentPath().stringByAppendingPathComponent(fileName)
                 let fm = NSFileManager()
                 var isDir: ObjCBool = false

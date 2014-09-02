@@ -46,7 +46,7 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
         // Custom initialization
     }
     
-    required init(coder aDecoder: NSCoder!)  {
+    required init(coder aDecoder: NSCoder)  {
         super.init(coder:aDecoder)
     }
 
@@ -71,6 +71,7 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = kCLDistanceFilterNone
+        manager.requestWhenInUseAuthorization();
         manager.startUpdatingLocation()
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -136,7 +137,7 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
         fh = NSFileHandle(forWritingAtPath:path)
         fh.seekToEndOfFile()
         for str in coords {
-            fh.writeData(str.dataUsingEncoding(NSUTF8StringEncoding))
+            fh.writeData(str.dataUsingEncoding(NSUTF8StringEncoding)!)
         }
         fh.closeFile()
         coords = []
