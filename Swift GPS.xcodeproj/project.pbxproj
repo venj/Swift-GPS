@@ -54,7 +54,6 @@
 		2591814A1980DC51001C296C /* GPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		2591814B1980DC51001C296C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		2591814C1980DC51001C296C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		2591814D1980DC51001C296C /* SwiftGPS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftGPS.playground; sourceTree = "<group>"; };
 		259181581980DC5C001C296C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2591815A1980DC5C001C296C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,7 +97,6 @@
 		259181231980DBA5001C296C /* Swift GPS */ = {
 			isa = PBXGroup;
 			children = (
-				2591814D1980DC51001C296C /* SwiftGPS.playground */,
 				259181261980DBA5001C296C /* AppDelegate.swift */,
 				259181441980DC51001C296C /* DeviceGeometry.swift */,
 				259181451980DC51001C296C /* DistanceCalculateViewController.swift */,

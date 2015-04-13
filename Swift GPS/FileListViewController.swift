@@ -37,7 +37,7 @@ class FileListViewController: UITableViewController {
         let fm = NSFileManager()
         let dirEnum = fm.enumeratorAtPath(UserDocumentPath())
         var fileArray = Array<String>()
-        while let file = dirEnum.nextObject() as? String {
+        while let file = dirEnum!.nextObject() as? String {
             if file.pathExtension == "txt" {
                 fileArray.append(UserDocumentPath().stringByAppendingPathComponent(file))
             }
@@ -64,11 +64,11 @@ class FileListViewController: UITableViewController {
         // Return the number of rows in the section.
         return files.count
     }
-
-    override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
-        let cell = tableView!.dequeueReusableCellWithIdentifier("FileNameIdentifier", forIndexPath: indexPath) as UITableViewCell
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("FileNameIdentifier", forIndexPath: indexPath) as! UITableViewCell
         // Configure the cell...
-        cell.textLabel.text = files[indexPath!.row].lastPathComponent
+        cell.textLabel!.text = files[indexPath.row].lastPathComponent
 
         return cell
     }
@@ -83,9 +83,9 @@ class FileListViewController: UITableViewController {
     override func tableView(tableView: UITableView?, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath?) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            let fileName = tableView!.cellForRowAtIndexPath(indexPath!).textLabel.text
+            let fileName = tableView!.cellForRowAtIndexPath(indexPath!)!.textLabel!.text
             if (fileName != nil) {
-                let filePath = UserDocumentPath().stringByAppendingPathComponent(fileName)
+                let filePath = UserDocumentPath().stringByAppendingPathComponent(fileName!)
                 let fm = NSFileManager()
                 var isDir: ObjCBool = false
                 // FIXME: Maybe wrong calling this method.
@@ -115,7 +115,7 @@ class FileListViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         var indexPath = tableView!.indexPathForSelectedRow()
-        tableView.deselectRowAtIndexPath(indexPath, animated:true)
+        tableView.deselectRowAtIndexPath(indexPath!, animated:true)
         if let vc = segue?.destinationViewController as? FileContentViewController {
             vc.path = files[indexPath!.row]
         }

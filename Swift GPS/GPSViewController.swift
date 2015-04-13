@@ -89,8 +89,8 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
         
         path = UserDocumentPath().stringByAppendingPathComponent(fileName)
         fm = NSFileManager.defaultManager()
-        if !fm.fileExistsAtPath(path) {
-            fm.createFileAtPath(path, contents:nil, attributes:[:])
+        if !fm.fileExistsAtPath(path as! String) {
+            fm.createFileAtPath(path as String, contents:nil, attributes:[:])
         }
         recording = false;
     }
@@ -107,7 +107,7 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
     // #pragma mark - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         if segue!.identifier == "GPSToMapView" {
-            let dest = segue!.destinationViewController as MapViewController
+            let dest = segue!.destinationViewController as! MapViewController
             if let location: CLLocation = currentLocation {
                 dest.currentPoint = Point(coord:[location.coordinate.latitude, location.coordinate.longitude])
             }
@@ -133,10 +133,10 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
         if coords.count == 0 {
             return
         }
-        if !fm.fileExistsAtPath(path) {
-            fm.createFileAtPath(path, contents:nil, attributes:[:])
+        if !fm.fileExistsAtPath(path as! String) {
+            fm.createFileAtPath(path as! String, contents:nil, attributes:[:])
         }
-        fh = NSFileHandle(forWritingAtPath:path)
+        fh = NSFileHandle(forWritingAtPath:path as! String)
         fh.seekToEndOfFile()
         for str in coords {
             fh.writeData(str.dataUsingEncoding(NSUTF8StringEncoding)!)
@@ -157,10 +157,10 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
     }
     
     // UIAlertView Delegate
-    func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         if buttonIndex == 1 { // Index 1.
             var fileName: String
-            let title = alertView.textFieldAtIndex(0).text
+            let title = alertView.textFieldAtIndex(0)!.text
             if title != "" {
                 fileName = "\(title).txt"
             }
@@ -169,7 +169,7 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
             }
             
             path = UserDocumentPath().stringByAppendingPathComponent(fileName)
-            if fm.fileExistsAtPath(path) {
+            if fm.fileExistsAtPath(path as! String) {
                 let alert = UIAlertView()
                 alert.title = NSLocalizedString("Error", comment: "Error")
                 alert.message = NSLocalizedString("File already exists with the same name!", comment: "File already exists with the same name!")
@@ -180,8 +180,8 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
                 writeCoordsCacheToFile()
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setObject(fileName, forKey:kLatestTimeStamp)
-                if !fm.fileExistsAtPath(path) {
-                    fm.createFileAtPath(path, contents:nil, attributes:[:])
+                if !fm.fileExistsAtPath(path as String) {
+                    fm.createFileAtPath(path as String, contents:nil, attributes:[:])
                 }
                 startRecord(nil)
             }
@@ -192,23 +192,23 @@ class GPSViewController: UIViewController, CLLocationManagerDelegate, UIAlertVie
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        let newLocation = (locations as NSArray).lastObject as CLLocation
-        latitudeLabel.text = NSString(format:"%.10f", newLocation.coordinate.latitude)
-        longitudeLabel.text = NSString(format:"%.10f", newLocation.coordinate.longitude)
-        altitudeLabel.text = NSString(format:"%.2f", newLocation.altitude)
-        hAccuracyLabel.text = NSString(format:"%.2f", newLocation.horizontalAccuracy)
-        vAccuracyLabel.text = NSString(format:"%.2f", newLocation.verticalAccuracy)
+        let newLocation = (locations as NSArray).lastObject as! CLLocation
+        latitudeLabel.text = NSString(format:"%.10f", newLocation.coordinate.latitude) as String
+        longitudeLabel.text = NSString(format:"%.10f", newLocation.coordinate.longitude) as String
+        altitudeLabel.text = NSString(format:"%.2f", newLocation.altitude) as String
+        hAccuracyLabel.text = NSString(format:"%.2f", newLocation.horizontalAccuracy) as String
+        vAccuracyLabel.text = NSString(format:"%.2f", newLocation.verticalAccuracy) as String
         let formatter = NSDateFormatter()
         formatter.timeStyle = .MediumStyle
         formatter.dateStyle = .ShortStyle
         let locale = NSLocale.systemLocale()
         formatter.locale = locale
         timeLabel.text = formatter.stringFromDate(newLocation.timestamp)
-        speedLabel.text = NSString(format:"%.2f", newLocation.speed)
+        speedLabel.text = NSString(format:"%.2f", newLocation.speed) as String
         currentLocation = newLocation
         
         if recording {
-            coords.append(NSString(format:"%@,%@,%@,%@,%@,%.0f,%@\n", latitudeLabel.text, longitudeLabel.text, altitudeLabel.text, hAccuracyLabel.text, vAccuracyLabel.text, newLocation.timestamp.timeIntervalSince1970, speedLabel.text))
+            coords.append(NSString(format:"%@,%@,%@,%@,%@,%.0f,%@\n", latitudeLabel.text!, longitudeLabel.text!, altitudeLabel.text!, hAccuracyLabel.text!, vAccuracyLabel.text!, newLocation.timestamp.timeIntervalSince1970, speedLabel.text!) as String)
             
             if coords.count >= 10 {
                 writeCoordsCacheToFile()

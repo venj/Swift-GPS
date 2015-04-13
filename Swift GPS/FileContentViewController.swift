@@ -38,7 +38,7 @@ class FileContentViewController: UIViewController {
     }
     
     func readFileContent() -> String {
-        return NSString.stringWithContentsOfFile(path, encoding:NSUTF8StringEncoding, error:nil)
+        return NSString(contentsOfFile: path, encoding:NSUTF8StringEncoding, error:nil) as! String
     }
     
     @IBAction func reloadFile(sender: AnyObject!) {

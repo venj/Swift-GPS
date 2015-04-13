@@ -67,7 +67,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             pinView.animatesDrop = true
             pinView.canShowCallout = true
             if let anno = annotation as? Point {
-                anno.title = NSString(format:"%8f,%8f", anno.coordinate.latitude, anno.coordinate.longitude)
+                anno.title = NSString(format:"%8f,%8f", anno.coordinate.latitude, anno.coordinate.longitude) as String
             }
             return pinView
         }

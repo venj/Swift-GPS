@@ -56,8 +56,8 @@ class DistanceCalculateViewController: UIViewController, CLLocationManagerDelega
     @IBAction func getCurrentLocation(sender: AnyObject!) {
         //Fixme: Failed with capture list. Fall back to traditional resolution.
         dispatch_async(dispatch_get_main_queue()) { [weak self] in
-            self!.toLatField.text = NSString(format:"%.8f", self!.currentLocation.coordinate.latitude)
-            self!.toLngField.text = NSString(format:"%.8f", self!.currentLocation.coordinate.longitude)
+            self!.toLatField.text = NSString(format:"%.8f", self!.currentLocation.coordinate.latitude) as String
+            self!.toLngField.text = NSString(format:"%.8f", self!.currentLocation.coordinate.longitude) as String
         }
     }
     
@@ -80,7 +80,7 @@ class DistanceCalculateViewController: UIViewController, CLLocationManagerDelega
         let from = Point(coord:[fromLat, fromLng])
         let to = Point(coord:[toLat, toLng])
         let distance = getDistanceFromPoints(from, to)
-        distanceLabel.text = NSString.localizedStringWithFormat(NSLocalizedString("%.2f yd / %.2f m", comment: "%.2f yd / %.2f m"), fabs(distance), fabs(distance) / YardPerMeter)
+        distanceLabel.text = NSString.localizedStringWithFormat(NSLocalizedString("%.2f yd / %.2f m", comment: "%.2f yd / %.2f m"), fabs(distance), fabs(distance) / YardPerMeter) as String
     }
     
     // #pragma mark - Navigation
@@ -88,11 +88,11 @@ class DistanceCalculateViewController: UIViewController, CLLocationManagerDelega
         if let s = segue {
             if (s.identifier == "FromToMap") {
                 let p = Point(coord:[Double(fromLatField.text), Double(fromLngField.text)]);
-                (s.destinationViewController as MapViewController).currentPoint = p
+                (s.destinationViewController as! MapViewController).currentPoint = p
             }
             if (s.identifier == "ToToMap") {
                 let p = Point(coord:[Double(toLatField.text), Double(toLngField.text)]);
-                (s.destinationViewController as MapViewController).currentPoint = p
+                (s.destinationViewController as! MapViewController).currentPoint = p
             }
         }
     }
@@ -101,7 +101,7 @@ class DistanceCalculateViewController: UIViewController, CLLocationManagerDelega
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         if let locationArray = locations as? [CLLocation] {
             let newLocation = locationArray[locationArray.count - 1]
-            infoLabel.text = NSString.localizedStringWithFormat(NSLocalizedString("Alt: %.2f H-Acc: %.2f V-Acc: %.2f", comment:"Alt: %.2f H-Acc: %.2f V-Acc: %.2f"), newLocation.altitude, newLocation.horizontalAccuracy, newLocation.verticalAccuracy)
+            infoLabel.text = NSString.localizedStringWithFormat(NSLocalizedString("Alt: %.2f H-Acc: %.2f V-Acc: %.2f", comment:"Alt: %.2f H-Acc: %.2f V-Acc: %.2f"), newLocation.altitude, newLocation.horizontalAccuracy, newLocation.verticalAccuracy) as? String
             currentLocation = newLocation;
         }
     }
